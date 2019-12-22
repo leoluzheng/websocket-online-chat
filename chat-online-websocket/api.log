@@ -1,0 +1,302 @@
+2019-12-22 14:14:31.034  INFO 621936 --- [restartedMain] c.w.c.ChatOnlineWebsocketApplication     : Starting ChatOnlineWebsocketApplication on WUDG with PID 621936 (E:\desktop\svn\utils\chat-online-websocket\target\classes started by Administrator in E:\desktop\svn\utils\chat-online-websocket)
+2019-12-22 14:14:31.039  INFO 621936 --- [restartedMain] c.w.c.ChatOnlineWebsocketApplication     : The following profiles are active: dev
+2019-12-22 14:14:31.092  INFO 621936 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-12-22 14:14:31.092  INFO 621936 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-12-22 14:14:32.811  INFO 621936 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-12-22 14:14:32.815  INFO 621936 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2019-12-22 14:14:32.846  INFO 621936 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10ms. Found 0 Redis repository interfaces.
+2019-12-22 14:14:33.356  INFO 621936 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-22 14:14:34.059  INFO 621936 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8808 (http)
+2019-12-22 14:14:34.071  INFO 621936 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-12-22 14:14:34.072  INFO 621936 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-22 14:14:34.252  INFO 621936 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/chat]   : Initializing Spring embedded WebApplicationContext
+2019-12-22 14:14:34.252  INFO 621936 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3159 ms
+2019-12-22 14:14:34.356  INFO 621936 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/chat]   : Set web app root system property: 'webapp.root' = [C:\Users\Administrator\AppData\Local\Temp\tomcat-docbase.2595780548983771200.8808\]
+2019-12-22 14:14:34.437  INFO 621936 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2019-12-22 14:14:35.741  INFO 621936 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-12-22 14:14:38.330  INFO 621936 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-22 14:14:42.321  INFO 621936 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2019-12-22 14:14:42.452  INFO 621936 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8808 (http) with context path '/chat'
+2019-12-22 14:14:42.455  INFO 621936 --- [restartedMain] c.w.c.ChatOnlineWebsocketApplication     : Started ChatOnlineWebsocketApplication in 12.252 seconds (JVM running for 17.56)
+2019-12-22 14:15:08.013  INFO 621936 --- [http-nio-8808-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/chat]   : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-12-22 14:15:08.013  INFO 621936 --- [http-nio-8808-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-12-22 14:15:08.448  INFO 621936 --- [http-nio-8808-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 435 ms
+2019-12-22 14:15:09.693  INFO 621936 --- [http-nio-8808-exec-1] c.w.c.ChatOnlineWebsocketApplication     : 真实IP:192.168.56.1
+2019-12-22 14:15:14.503  INFO 621936 --- [http-nio-8808-exec-8] c.w.c.ChatOnlineWebsocketApplication     : 真实IP:192.168.56.1
+2019-12-22 14:15:18.128  INFO 621936 --- [http-nio-8808-exec-14] c.w.chatonlinewebsocket.utils.ChatUtil   : websocketList->{"15":{},"10":{}}
+2019-12-22 14:15:18.128  INFO 621936 --- [http-nio-8808-exec-6] c.w.chatonlinewebsocket.utils.ChatUtil   : websocketList->{"15":{},"10":{}}
+2019-12-22 14:15:18.128  INFO 621936 --- [http-nio-8808-exec-14] c.w.chatonlinewebsocket.utils.ChatUtil   : 有新窗口开始监听:15,IP:192.168.56.1,当前在线人数为1,接入渠道ID为:1,表单ID:10
+2019-12-22 14:15:18.128  INFO 621936 --- [http-nio-8808-exec-6] c.w.chatonlinewebsocket.utils.ChatUtil   : 有新窗口开始监听:10,IP:192.168.56.1,当前在线人数为2,接入渠道ID为:1,表单ID:10
+2019-12-22 14:15:18.129  INFO 621936 --- [http-nio-8808-exec-14] c.w.chatonlinewebsocket.utils.ChatUtil   : 此时全部在线用户ID:["15","10"]
+2019-12-22 14:15:18.129  INFO 621936 --- [http-nio-8808-exec-6] c.w.chatonlinewebsocket.utils.ChatUtil   : 此时全部在线用户ID:["15","10"]
+2019-12-22 14:15:18.284 DEBUG 621936 --- [http-nio-8808-exec-14] c.w.c.d.D.queryDialogueDetailById        : ==>  Preparing: select * from dialogue_detail where id=? 
+2019-12-22 14:15:18.284 DEBUG 621936 --- [http-nio-8808-exec-6] c.w.c.d.D.queryDialogueDetailById        : ==>  Preparing: select * from dialogue_detail where id=? 
+2019-12-22 14:15:18.891 DEBUG 621936 --- [http-nio-8808-exec-6] c.w.c.d.D.queryDialogueDetailById        : ==> Parameters: 10(Integer)
+2019-12-22 14:15:18.891 DEBUG 621936 --- [http-nio-8808-exec-14] c.w.c.d.D.queryDialogueDetailById        : ==> Parameters: 10(Integer)
+2019-12-22 14:15:18.958 DEBUG 621936 --- [http-nio-8808-exec-6] c.w.c.d.D.queryDialogueDetailById        : <==      Total: 1
+2019-12-22 14:15:18.963  INFO 621936 --- [http-nio-8808-exec-6] c.w.chatonlinewebsocket.utils.ChatUtil   : detail={"adminId":15,"channelId":1,"id":10,"status":1,"userId":10}
+2019-12-22 14:15:18.966 DEBUG 621936 --- [http-nio-8808-exec-14] c.w.c.d.D.queryDialogueDetailById        : <==      Total: 1
+2019-12-22 14:15:18.966  INFO 621936 --- [http-nio-8808-exec-14] c.w.chatonlinewebsocket.utils.ChatUtil   : detail={"adminId":15,"channelId":1,"id":10,"status":1,"userId":10}
+2019-12-22 14:15:19.030 DEBUG 621936 --- [http-nio-8808-exec-14] c.w.c.d.DialogueMapper.selectByDialogue  : ==>  Preparing: select ID, MESSAGE_TYPE, USER_IP, SENDER_ID, STATUS, CREATE_TIME, UPDATE_TIME,CHANNEL_ID,DIALOGUE_DETAIL_ID , MESSAGE_CONTENT from dialogue where 1=1 AND DIALOGUE_DETAIL_ID = ? group by ID 
+2019-12-22 14:15:19.035 DEBUG 621936 --- [http-nio-8808-exec-14] c.w.c.d.DialogueMapper.selectByDialogue  : ==> Parameters: 10(Integer)
+2019-12-22 14:15:19.037 DEBUG 621936 --- [http-nio-8808-exec-6] c.w.c.d.DialogueMapper.selectByDialogue  : ==>  Preparing: select ID, MESSAGE_TYPE, USER_IP, SENDER_ID, STATUS, CREATE_TIME, UPDATE_TIME,CHANNEL_ID,DIALOGUE_DETAIL_ID , MESSAGE_CONTENT from dialogue where 1=1 AND DIALOGUE_DETAIL_ID = ? group by ID 
+2019-12-22 14:15:19.038 DEBUG 621936 --- [http-nio-8808-exec-6] c.w.c.d.DialogueMapper.selectByDialogue  : ==> Parameters: 10(Integer)
+2019-12-22 14:15:19.964 DEBUG 621936 --- [http-nio-8808-exec-6] c.w.c.d.DialogueMapper.selectByDialogue  : <==      Total: 8
+2019-12-22 14:15:19.965  INFO 621936 --- [http-nio-8808-exec-6] c.w.chatonlinewebsocket.utils.ChatUtil   : 是否是专家:{"code":200,"data":{"isExpert":false},"msg":"success"}
+2019-12-22 14:15:19.966 DEBUG 621936 --- [http-nio-8808-exec-14] c.w.c.d.DialogueMapper.selectByDialogue  : <==      Total: 8
+2019-12-22 14:15:19.967  INFO 621936 --- [http-nio-8808-exec-14] c.w.chatonlinewebsocket.utils.ChatUtil   : 是否是专家:{"code":200,"data":{"isExpert":true},"msg":"success"}
+2019-12-22 14:15:36.346  INFO 621936 --- [http-nio-8808-exec-25] c.w.chatonlinewebsocket.utils.ChatUtil   : 当前用户是专家吗?true
+2019-12-22 14:15:36.346  INFO 621936 --- [http-nio-8808-exec-25] c.w.chatonlinewebsocket.utils.ChatUtil   : 接收到的数据:{"code":200,"data":{"contentText":"888","channId":"1","toUserId":"15"},"msg":"success"}
+2019-12-22 14:15:36.346  INFO 621936 --- [http-nio-8808-exec-25] c.w.chatonlinewebsocket.utils.ChatUtil   : toUserId=10
+2019-12-22 14:15:36.346  INFO 621936 --- [http-nio-8808-exec-25] c.w.chatonlinewebsocket.utils.ChatUtil   : 在线的人:websocketList->{"15":{},"10":{}}
+2019-12-22 14:15:36.347  INFO 621936 --- [http-nio-8808-exec-25] c.w.chatonlinewebsocket.utils.ChatUtil   : object={"contentText":"888","channId":"1","toUserId":"15"}
+2019-12-22 14:15:36.347 DEBUG 621936 --- [http-nio-8808-exec-25] c.w.c.dao.DialogueMapper.add             : ==>  Preparing: insert into dialogue(USER_IP,MESSAGE_TYPE,SENDER_ID,MESSAGE_CONTENT,STATUS,CREATE_TIME,UPDATE_TIME,CHANNEL_ID,DIALOGUE_DETAIL_ID) values(?,?,?,?,?,?,?,?,?) 
+2019-12-22 14:15:36.882 DEBUG 621936 --- [http-nio-8808-exec-25] c.w.c.dao.DialogueMapper.add             : ==> Parameters: 192.168.56.1(String), 1(Integer), 15(Integer), [B@4ee31351(byte[]), 0(Integer), 2019-12-22 14:15:36.346(Timestamp), null, 1(Integer), 10(Integer)
+2019-12-22 14:15:37.046 DEBUG 621936 --- [http-nio-8808-exec-25] c.w.c.dao.DialogueMapper.add             : <==    Updates: 1
+2019-12-22 14:15:39.442  INFO 621936 --- [http-nio-8808-exec-22] c.w.c.ChatOnlineWebsocketApplication     : 真实IP:192.168.56.1
+2019-12-22 14:15:39.458  INFO 621936 --- [http-nio-8808-exec-28] c.w.chatonlinewebsocket.utils.ChatUtil   : 有一连接关闭！当前在线人数为1
+2019-12-22 14:15:39.459  INFO 621936 --- [http-nio-8808-exec-28] c.w.chatonlinewebsocket.utils.ChatUtil   : 现在在线用户ID:["15"]
+2019-12-22 14:15:39.568  INFO 621936 --- [http-nio-8808-exec-4] c.w.chatonlinewebsocket.utils.ChatUtil   : websocketList->{"15":{},"10":{}}
+2019-12-22 14:15:39.569  INFO 621936 --- [http-nio-8808-exec-4] c.w.chatonlinewebsocket.utils.ChatUtil   : 有新窗口开始监听:10,IP:192.168.56.1,当前在线人数为2,接入渠道ID为:1,表单ID:10
+2019-12-22 14:15:39.569  INFO 621936 --- [http-nio-8808-exec-4] c.w.chatonlinewebsocket.utils.ChatUtil   : 此时全部在线用户ID:["15","10"]
+2019-12-22 14:15:39.570 DEBUG 621936 --- [http-nio-8808-exec-4] c.w.c.d.D.queryDialogueDetailById        : ==>  Preparing: select * from dialogue_detail where id=? 
+2019-12-22 14:15:39.570 DEBUG 621936 --- [http-nio-8808-exec-4] c.w.c.d.D.queryDialogueDetailById        : ==> Parameters: 10(Integer)
+2019-12-22 14:15:39.571 DEBUG 621936 --- [http-nio-8808-exec-4] c.w.c.d.D.queryDialogueDetailById        : <==      Total: 1
+2019-12-22 14:15:39.572  INFO 621936 --- [http-nio-8808-exec-4] c.w.chatonlinewebsocket.utils.ChatUtil   : detail={"adminId":15,"channelId":1,"id":10,"status":1,"userId":10}
+2019-12-22 14:15:39.572 DEBUG 621936 --- [http-nio-8808-exec-4] c.w.c.d.DialogueMapper.selectByDialogue  : ==>  Preparing: select ID, MESSAGE_TYPE, USER_IP, SENDER_ID, STATUS, CREATE_TIME, UPDATE_TIME,CHANNEL_ID,DIALOGUE_DETAIL_ID , MESSAGE_CONTENT from dialogue where 1=1 AND DIALOGUE_DETAIL_ID = ? group by ID 
+2019-12-22 14:15:39.572 DEBUG 621936 --- [http-nio-8808-exec-4] c.w.c.d.DialogueMapper.selectByDialogue  : ==> Parameters: 10(Integer)
+2019-12-22 14:15:39.584 DEBUG 621936 --- [http-nio-8808-exec-4] c.w.c.d.DialogueMapper.selectByDialogue  : <==      Total: 9
+2019-12-22 14:15:39.584  INFO 621936 --- [http-nio-8808-exec-4] c.w.chatonlinewebsocket.utils.ChatUtil   : 是否是专家:{"code":200,"data":{"isExpert":false},"msg":"success"}
+2019-12-22 14:15:42.649 ERROR 621936 --- [Catalina-utility-1] o.a.coyote.http11.Http11NioProtocol      : Error processing async timeouts
+
+java.util.concurrent.ExecutionException: java.lang.AbstractMethodError: Method org/apache/tomcat/websocket/server/WsHttpUpgradeHandler.timeoutAsync(J)V is abstract
+	at java.util.concurrent.FutureTask.report(Unknown Source) [na:1.8.0_20]
+	at java.util.concurrent.FutureTask.get(Unknown Source) [na:1.8.0_20]
+	at org.apache.coyote.AbstractProtocol.startAsyncTimeout(AbstractProtocol.java:609) ~[tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.coyote.AbstractProtocol$1.run(AbstractProtocol.java:592) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source) [na:1.8.0_20]
+	at java.util.concurrent.FutureTask.runAndReset(Unknown Source) [na:1.8.0_20]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(Unknown Source) [na:1.8.0_20]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source) [na:1.8.0_20]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [na:1.8.0_20]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [na:1.8.0_20]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at java.lang.Thread.run(Unknown Source) [na:1.8.0_20]
+Caused by: java.lang.AbstractMethodError: Method org/apache/tomcat/websocket/server/WsHttpUpgradeHandler.timeoutAsync(J)V is abstract
+	at org.apache.tomcat.websocket.server.WsHttpUpgradeHandler.timeoutAsync(WsHttpUpgradeHandler.java) ~[tomcat-embed-websocket-8.5.23.jar:8.5.23]
+	at org.apache.coyote.http11.upgrade.UpgradeProcessorInternal.timeoutAsync(UpgradeProcessorInternal.java:78) ~[tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.coyote.AbstractProtocol$2.run(AbstractProtocol.java:620) ~[tomcat-embed-core-9.0.29.jar:9.0.29]
+	... 8 common frames omitted
+
+2019-12-22 14:15:44.410  INFO 621936 --- [http-nio-8808-exec-10] c.w.c.ChatOnlineWebsocketApplication     : 真实IP:192.168.56.1
+2019-12-22 14:15:44.429  INFO 621936 --- [http-nio-8808-exec-9] c.w.chatonlinewebsocket.utils.ChatUtil   : 有一连接关闭！当前在线人数为1
+2019-12-22 14:15:44.429  INFO 621936 --- [http-nio-8808-exec-9] c.w.chatonlinewebsocket.utils.ChatUtil   : 现在在线用户ID:["10"]
+2019-12-22 14:15:44.509  INFO 621936 --- [http-nio-8808-exec-12] c.w.chatonlinewebsocket.utils.ChatUtil   : websocketList->{"15":{},"10":{}}
+2019-12-22 14:15:44.509  INFO 621936 --- [http-nio-8808-exec-12] c.w.chatonlinewebsocket.utils.ChatUtil   : 有新窗口开始监听:15,IP:192.168.56.1,当前在线人数为2,接入渠道ID为:1,表单ID:10
+2019-12-22 14:15:44.509  INFO 621936 --- [http-nio-8808-exec-12] c.w.chatonlinewebsocket.utils.ChatUtil   : 此时全部在线用户ID:["15","10"]
+2019-12-22 14:15:44.510 DEBUG 621936 --- [http-nio-8808-exec-12] c.w.c.d.D.queryDialogueDetailById        : ==>  Preparing: select * from dialogue_detail where id=? 
+2019-12-22 14:15:44.511 DEBUG 621936 --- [http-nio-8808-exec-12] c.w.c.d.D.queryDialogueDetailById        : ==> Parameters: 10(Integer)
+2019-12-22 14:15:44.512 DEBUG 621936 --- [http-nio-8808-exec-12] c.w.c.d.D.queryDialogueDetailById        : <==      Total: 1
+2019-12-22 14:15:44.512  INFO 621936 --- [http-nio-8808-exec-12] c.w.chatonlinewebsocket.utils.ChatUtil   : detail={"adminId":15,"channelId":1,"id":10,"status":1,"userId":10}
+2019-12-22 14:15:44.513 DEBUG 621936 --- [http-nio-8808-exec-12] c.w.c.d.DialogueMapper.selectByDialogue  : ==>  Preparing: select ID, MESSAGE_TYPE, USER_IP, SENDER_ID, STATUS, CREATE_TIME, UPDATE_TIME,CHANNEL_ID,DIALOGUE_DETAIL_ID , MESSAGE_CONTENT from dialogue where 1=1 AND DIALOGUE_DETAIL_ID = ? group by ID 
+2019-12-22 14:15:44.513 DEBUG 621936 --- [http-nio-8808-exec-12] c.w.c.d.DialogueMapper.selectByDialogue  : ==> Parameters: 10(Integer)
+2019-12-22 14:15:44.526 DEBUG 621936 --- [http-nio-8808-exec-12] c.w.c.d.DialogueMapper.selectByDialogue  : <==      Total: 9
+2019-12-22 14:15:44.527  INFO 621936 --- [http-nio-8808-exec-12] c.w.chatonlinewebsocket.utils.ChatUtil   : 是否是专家:{"code":200,"data":{"isExpert":true},"msg":"success"}
+2019-12-22 14:16:05.938  INFO 621936 --- [Thread-33] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-12-22 14:16:05.942  INFO 621936 --- [Thread-33] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2019-12-22 14:16:06.711  INFO 621936 --- [Thread-33] c.w.chatonlinewebsocket.utils.ChatUtil   : 有一连接关闭！当前在线人数为1
+2019-12-22 14:16:06.712  INFO 621936 --- [Thread-33] c.w.chatonlinewebsocket.utils.ChatUtil   : 现在在线用户ID:["15"]
+2019-12-22 14:16:06.714  INFO 621936 --- [Thread-33] c.w.chatonlinewebsocket.utils.ChatUtil   : 有一连接关闭！当前在线人数为0
+2019-12-22 14:16:06.714  INFO 621936 --- [Thread-33] c.w.chatonlinewebsocket.utils.ChatUtil   : 现在在线用户ID:[]
+2019-12-22 14:16:07.079  INFO 621936 --- [restartedMain] c.w.c.ChatOnlineWebsocketApplication     : Starting ChatOnlineWebsocketApplication on WUDG with PID 621936 (E:\desktop\svn\utils\chat-online-websocket\target\classes started by Administrator in E:\desktop\svn\utils\chat-online-websocket)
+2019-12-22 14:16:07.079  INFO 621936 --- [restartedMain] c.w.c.ChatOnlineWebsocketApplication     : The following profiles are active: dev
+2019-12-22 14:16:07.295  INFO 621936 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-12-22 14:16:07.295  INFO 621936 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2019-12-22 14:16:07.300  INFO 621936 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 3ms. Found 0 Redis repository interfaces.
+2019-12-22 14:16:07.368  INFO 621936 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-22 14:16:07.462  WARN 621936 --- [restartedMain] org.apache.tomcat.util.modeler.Registry  : The MBean registry cannot be disabled because it has already been initialised
+2019-12-22 14:16:07.517  INFO 621936 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8808 (http)
+2019-12-22 14:16:07.517  INFO 621936 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-12-22 14:16:07.517  INFO 621936 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-22 14:16:07.657  INFO 621936 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/chat]   : Initializing Spring embedded WebApplicationContext
+2019-12-22 14:16:07.657  INFO 621936 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 574 ms
+2019-12-22 14:16:07.686  INFO 621936 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/chat]   : Set web app root system property: 'webapp.root' = [C:\Users\Administrator\AppData\Local\Temp\tomcat-docbase.3474886043200228327.8808\]
+2019-12-22 14:16:07.714  INFO 621936 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2019-12-22 14:16:08.004  INFO 621936 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-2} inited
+2019-12-22 14:16:08.531  INFO 621936 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-22 14:16:09.132  INFO 621936 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2019-12-22 14:16:09.179  INFO 621936 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8808 (http) with context path '/chat'
+2019-12-22 14:16:09.367  INFO 621936 --- [restartedMain] c.w.c.ChatOnlineWebsocketApplication     : Started ChatOnlineWebsocketApplication in 2.327 seconds (JVM running for 104.472)
+2019-12-22 14:16:09.369  INFO 621936 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2019-12-22 14:16:11.038  INFO 621936 --- [Thread-41] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-12-22 14:16:11.043  INFO 621936 --- [Thread-41] com.alibaba.druid.pool.DruidDataSource   : {dataSource-2} closed
+2019-12-22 14:16:11.538  INFO 621936 --- [restartedMain] c.w.c.ChatOnlineWebsocketApplication     : Starting ChatOnlineWebsocketApplication on WUDG with PID 621936 (E:\desktop\svn\utils\chat-online-websocket\target\classes started by Administrator in E:\desktop\svn\utils\chat-online-websocket)
+2019-12-22 14:16:11.538  INFO 621936 --- [restartedMain] c.w.c.ChatOnlineWebsocketApplication     : The following profiles are active: dev
+2019-12-22 14:16:11.744  INFO 621936 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-12-22 14:16:11.744  INFO 621936 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2019-12-22 14:16:11.748  INFO 621936 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 4ms. Found 0 Redis repository interfaces.
+2019-12-22 14:16:11.802  INFO 621936 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-22 14:16:11.859  WARN 621936 --- [restartedMain] org.apache.tomcat.util.modeler.Registry  : The MBean registry cannot be disabled because it has already been initialised
+2019-12-22 14:16:11.901  INFO 621936 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8808 (http)
+2019-12-22 14:16:11.901  INFO 621936 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-12-22 14:16:11.901  INFO 621936 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-22 14:16:12.589  INFO 621936 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/chat]   : Initializing Spring embedded WebApplicationContext
+2019-12-22 14:16:12.589  INFO 621936 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1048 ms
+2019-12-22 14:16:12.611  INFO 621936 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/chat]   : Set web app root system property: 'webapp.root' = [C:\Users\Administrator\AppData\Local\Temp\tomcat-docbase.7661037895805519890.8808\]
+2019-12-22 14:16:12.624  INFO 621936 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2019-12-22 14:16:12.757  INFO 621936 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-3} inited
+2019-12-22 14:16:12.967  INFO 621936 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-22 14:16:13.223  INFO 621936 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2019-12-22 14:16:13.246  INFO 621936 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8808 (http) with context path '/chat'
+2019-12-22 14:16:13.246  INFO 621936 --- [restartedMain] c.w.c.ChatOnlineWebsocketApplication     : Started ChatOnlineWebsocketApplication in 1.739 seconds (JVM running for 108.351)
+2019-12-22 14:16:13.248  INFO 621936 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2019-12-22 14:16:18.066  INFO 623444 --- [main] .w.c.ChatOnlineWebsocketApplicationTests : Starting ChatOnlineWebsocketApplicationTests on WUDG with PID 623444 (started by Administrator in E:\desktop\svn\utils\chat-online-websocket)
+2019-12-22 14:16:18.067  INFO 623444 --- [main] .w.c.ChatOnlineWebsocketApplicationTests : The following profiles are active: dev
+2019-12-22 14:16:19.116  INFO 623444 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-12-22 14:16:19.119  INFO 623444 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2019-12-22 14:16:19.230  INFO 623444 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11ms. Found 0 Redis repository interfaces.
+2019-12-22 14:16:19.942  INFO 623444 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-22 14:16:22.014  INFO 623444 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2019-12-22 14:16:22.028  INFO 623444 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-12-22 14:16:22.029  INFO 623444 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-22 14:16:22.927  INFO 623444 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/chat]   : Initializing Spring embedded WebApplicationContext
+2019-12-22 14:16:22.927  INFO 623444 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 4774 ms
+2019-12-22 14:16:23.126  INFO 623444 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/chat]   : Set web app root system property: 'webapp.root' = [C:\Users\Administrator\AppData\Local\Temp\tomcat-docbase.2039244154448695921.0\]
+2019-12-22 14:16:23.245  INFO 623444 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2019-12-22 14:16:27.084  INFO 623444 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-12-22 14:16:30.310  INFO 623444 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-22 14:16:34.018  INFO 623444 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 55255 (http) with context path '/chat'
+2019-12-22 14:16:34.022  INFO 623444 --- [main] .w.c.ChatOnlineWebsocketApplicationTests : Started ChatOnlineWebsocketApplicationTests in 16.613 seconds (JVM running for 18.027)
+2019-12-22 14:16:35.757  INFO 623444 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-12-22 14:16:35.803  INFO 623444 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2019-12-22 15:06:20.583  INFO 532332 --- [restartedMain] c.w.c.ChatOnlineWebsocketApplication     : Starting ChatOnlineWebsocketApplication on WUDG with PID 532332 (E:\desktop\svn\utils\chat-online-websocket\target\classes started by Administrator in E:\desktop\svn\utils\chat-online-websocket)
+2019-12-22 15:06:20.650  INFO 532332 --- [restartedMain] c.w.c.ChatOnlineWebsocketApplication     : The following profiles are active: dev
+2019-12-22 15:06:20.726  INFO 532332 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-12-22 15:06:20.727  INFO 532332 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-12-22 15:06:24.202  INFO 532332 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-12-22 15:06:24.207  INFO 532332 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2019-12-22 15:06:24.257  INFO 532332 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 17ms. Found 0 Redis repository interfaces.
+2019-12-22 15:06:25.279  INFO 532332 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-22 15:06:27.207  INFO 532332 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8808 (http)
+2019-12-22 15:06:27.221  INFO 532332 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-12-22 15:06:27.222  INFO 532332 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-22 15:06:27.751  INFO 532332 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/chat]   : Initializing Spring embedded WebApplicationContext
+2019-12-22 15:06:27.752  INFO 532332 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 7025 ms
+2019-12-22 15:06:27.959  INFO 532332 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/chat]   : Set web app root system property: 'webapp.root' = [C:\Users\Administrator\AppData\Local\Temp\tomcat-docbase.1545421201396061260.8808\]
+2019-12-22 15:06:28.042  INFO 532332 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2019-12-22 15:06:29.058  INFO 532332 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-12-22 15:06:30.343  INFO 532332 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-22 15:06:31.809  INFO 532332 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2019-12-22 15:06:32.003  INFO 532332 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8808 (http) with context path '/chat'
+2019-12-22 15:06:32.006  INFO 532332 --- [restartedMain] c.w.c.ChatOnlineWebsocketApplication     : Started ChatOnlineWebsocketApplication in 12.623 seconds (JVM running for 16.908)
+2019-12-22 15:06:35.125  INFO 532332 --- [http-nio-8808-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/chat]   : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-12-22 15:06:35.125  INFO 532332 --- [http-nio-8808-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-12-22 15:06:35.135  INFO 532332 --- [http-nio-8808-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 10 ms
+2019-12-22 15:06:35.235  INFO 532332 --- [http-nio-8808-exec-1] c.w.c.ChatOnlineWebsocketApplication     : 真实IP:192.168.56.1
+2019-12-22 15:06:37.157  INFO 532332 --- [http-nio-8808-exec-6] c.w.chatonlinewebsocket.utils.ChatUtil   : websocketList->{"15":{}}
+2019-12-22 15:06:37.157  INFO 532332 --- [http-nio-8808-exec-6] c.w.chatonlinewebsocket.utils.ChatUtil   : 有新窗口开始监听:15,IP:192.168.56.1,当前在线人数为1,接入渠道ID为:1,表单ID:10
+2019-12-22 15:06:37.157  INFO 532332 --- [http-nio-8808-exec-6] c.w.chatonlinewebsocket.utils.ChatUtil   : 此时全部在线用户ID:["15"]
+2019-12-22 15:06:37.221 DEBUG 532332 --- [http-nio-8808-exec-6] c.w.c.d.D.queryDialogueDetailById        : ==>  Preparing: select * from dialogue_detail where id=? 
+2019-12-22 15:06:37.568 DEBUG 532332 --- [http-nio-8808-exec-6] c.w.c.d.D.queryDialogueDetailById        : ==> Parameters: 10(Integer)
+2019-12-22 15:06:37.584 DEBUG 532332 --- [http-nio-8808-exec-6] c.w.c.d.D.queryDialogueDetailById        : <==      Total: 1
+2019-12-22 15:06:37.588  INFO 532332 --- [http-nio-8808-exec-6] c.w.chatonlinewebsocket.utils.ChatUtil   : detail={"adminId":15,"channelId":1,"id":10,"status":1,"userId":10}
+2019-12-22 15:06:37.636 DEBUG 532332 --- [http-nio-8808-exec-6] c.w.c.d.DialogueMapper.selectByDialogue  : ==>  Preparing: select ID, MESSAGE_TYPE, USER_IP, SENDER_ID, STATUS, CREATE_TIME, UPDATE_TIME,CHANNEL_ID,DIALOGUE_DETAIL_ID , MESSAGE_CONTENT from dialogue where 1=1 AND DIALOGUE_DETAIL_ID = ? group by ID 
+2019-12-22 15:06:37.641 DEBUG 532332 --- [http-nio-8808-exec-6] c.w.c.d.DialogueMapper.selectByDialogue  : ==> Parameters: 10(Integer)
+2019-12-22 15:06:37.731 DEBUG 532332 --- [http-nio-8808-exec-6] c.w.c.d.DialogueMapper.selectByDialogue  : <==      Total: 11
+2019-12-22 15:06:37.733  INFO 532332 --- [http-nio-8808-exec-6] c.w.chatonlinewebsocket.utils.ChatUtil   : 是否是专家:{"code":200,"data":{"isExpert":true},"msg":"success"}
+2019-12-22 15:06:38.570  INFO 532332 --- [http-nio-8808-exec-8] c.w.c.ChatOnlineWebsocketApplication     : 真实IP:192.168.56.1
+2019-12-22 15:06:39.241  INFO 532332 --- [http-nio-8808-exec-16] c.w.chatonlinewebsocket.utils.ChatUtil   : websocketList->{"15":{},"10":{}}
+2019-12-22 15:06:39.241  INFO 532332 --- [http-nio-8808-exec-16] c.w.chatonlinewebsocket.utils.ChatUtil   : 有新窗口开始监听:10,IP:192.168.56.1,当前在线人数为2,接入渠道ID为:1,表单ID:10
+2019-12-22 15:06:39.241  INFO 532332 --- [http-nio-8808-exec-16] c.w.chatonlinewebsocket.utils.ChatUtil   : 此时全部在线用户ID:["15","10"]
+2019-12-22 15:06:39.242 DEBUG 532332 --- [http-nio-8808-exec-16] c.w.c.d.D.queryDialogueDetailById        : ==>  Preparing: select * from dialogue_detail where id=? 
+2019-12-22 15:06:39.243 DEBUG 532332 --- [http-nio-8808-exec-16] c.w.c.d.D.queryDialogueDetailById        : ==> Parameters: 10(Integer)
+2019-12-22 15:06:39.246 DEBUG 532332 --- [http-nio-8808-exec-16] c.w.c.d.D.queryDialogueDetailById        : <==      Total: 1
+2019-12-22 15:06:39.247  INFO 532332 --- [http-nio-8808-exec-16] c.w.chatonlinewebsocket.utils.ChatUtil   : detail={"adminId":15,"channelId":1,"id":10,"status":1,"userId":10}
+2019-12-22 15:06:39.248 DEBUG 532332 --- [http-nio-8808-exec-16] c.w.c.d.DialogueMapper.selectByDialogue  : ==>  Preparing: select ID, MESSAGE_TYPE, USER_IP, SENDER_ID, STATUS, CREATE_TIME, UPDATE_TIME,CHANNEL_ID,DIALOGUE_DETAIL_ID , MESSAGE_CONTENT from dialogue where 1=1 AND DIALOGUE_DETAIL_ID = ? group by ID 
+2019-12-22 15:06:39.248 DEBUG 532332 --- [http-nio-8808-exec-16] c.w.c.d.DialogueMapper.selectByDialogue  : ==> Parameters: 10(Integer)
+2019-12-22 15:06:39.361 DEBUG 532332 --- [http-nio-8808-exec-16] c.w.c.d.DialogueMapper.selectByDialogue  : <==      Total: 11
+2019-12-22 15:06:39.362  INFO 532332 --- [http-nio-8808-exec-16] c.w.chatonlinewebsocket.utils.ChatUtil   : 是否是专家:{"code":200,"data":{"isExpert":false},"msg":"success"}
+2019-12-22 15:07:32.051 ERROR 532332 --- [Catalina-utility-1] o.a.coyote.http11.Http11NioProtocol      : Error processing async timeouts
+
+java.util.concurrent.ExecutionException: java.lang.AbstractMethodError: Method org/apache/tomcat/websocket/server/WsHttpUpgradeHandler.timeoutAsync(J)V is abstract
+	at java.util.concurrent.FutureTask.report(Unknown Source) [na:1.8.0_20]
+	at java.util.concurrent.FutureTask.get(Unknown Source) [na:1.8.0_20]
+	at org.apache.coyote.AbstractProtocol.startAsyncTimeout(AbstractProtocol.java:609) ~[tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.coyote.AbstractProtocol$1.run(AbstractProtocol.java:592) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source) [na:1.8.0_20]
+	at java.util.concurrent.FutureTask.runAndReset(Unknown Source) [na:1.8.0_20]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(Unknown Source) [na:1.8.0_20]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source) [na:1.8.0_20]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [na:1.8.0_20]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [na:1.8.0_20]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at java.lang.Thread.run(Unknown Source) [na:1.8.0_20]
+Caused by: java.lang.AbstractMethodError: Method org/apache/tomcat/websocket/server/WsHttpUpgradeHandler.timeoutAsync(J)V is abstract
+	at org.apache.tomcat.websocket.server.WsHttpUpgradeHandler.timeoutAsync(WsHttpUpgradeHandler.java) ~[tomcat-embed-websocket-8.5.23.jar:8.5.23]
+	at org.apache.coyote.http11.upgrade.UpgradeProcessorInternal.timeoutAsync(UpgradeProcessorInternal.java:78) ~[tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.coyote.AbstractProtocol$2.run(AbstractProtocol.java:620) ~[tomcat-embed-core-9.0.29.jar:9.0.29]
+	... 8 common frames omitted
+
+2019-12-22 15:08:04.259  INFO 532332 --- [http-nio-8808-exec-26] c.w.c.ChatOnlineWebsocketApplication     : 真实IP:192.168.56.1
+2019-12-22 15:08:04.275  INFO 532332 --- [http-nio-8808-exec-27] c.w.chatonlinewebsocket.utils.ChatUtil   : 有一连接关闭！当前在线人数为1
+2019-12-22 15:08:04.276  INFO 532332 --- [http-nio-8808-exec-27] c.w.chatonlinewebsocket.utils.ChatUtil   : 现在在线用户ID:["15"]
+2019-12-22 15:08:04.390  INFO 532332 --- [http-nio-8808-exec-3] c.w.chatonlinewebsocket.utils.ChatUtil   : websocketList->{"15":{},"10":{}}
+2019-12-22 15:08:04.390  INFO 532332 --- [http-nio-8808-exec-3] c.w.chatonlinewebsocket.utils.ChatUtil   : 有新窗口开始监听:10,IP:192.168.56.1,当前在线人数为2,接入渠道ID为:1,表单ID:10
+2019-12-22 15:08:04.390  INFO 532332 --- [http-nio-8808-exec-3] c.w.chatonlinewebsocket.utils.ChatUtil   : 此时全部在线用户ID:["15","10"]
+2019-12-22 15:08:04.395 DEBUG 532332 --- [http-nio-8808-exec-3] c.w.c.d.D.queryDialogueDetailById        : ==>  Preparing: select * from dialogue_detail where id=? 
+2019-12-22 15:08:04.395 DEBUG 532332 --- [http-nio-8808-exec-3] c.w.c.d.D.queryDialogueDetailById        : ==> Parameters: 10(Integer)
+2019-12-22 15:08:04.396 DEBUG 532332 --- [http-nio-8808-exec-3] c.w.c.d.D.queryDialogueDetailById        : <==      Total: 1
+2019-12-22 15:08:04.396  INFO 532332 --- [http-nio-8808-exec-3] c.w.chatonlinewebsocket.utils.ChatUtil   : detail={"adminId":15,"channelId":1,"id":10,"status":1,"userId":10}
+2019-12-22 15:08:04.397 DEBUG 532332 --- [http-nio-8808-exec-3] c.w.c.d.DialogueMapper.selectByDialogue  : ==>  Preparing: select ID, MESSAGE_TYPE, USER_IP, SENDER_ID, STATUS, CREATE_TIME, UPDATE_TIME,CHANNEL_ID,DIALOGUE_DETAIL_ID , MESSAGE_CONTENT from dialogue where 1=1 AND DIALOGUE_DETAIL_ID = ? group by ID 
+2019-12-22 15:08:04.397 DEBUG 532332 --- [http-nio-8808-exec-3] c.w.c.d.DialogueMapper.selectByDialogue  : ==> Parameters: 10(Integer)
+2019-12-22 15:08:04.420 DEBUG 532332 --- [http-nio-8808-exec-3] c.w.c.d.DialogueMapper.selectByDialogue  : <==      Total: 11
+2019-12-22 15:08:04.420  INFO 532332 --- [http-nio-8808-exec-3] c.w.chatonlinewebsocket.utils.ChatUtil   : 是否是专家:{"code":200,"data":{"isExpert":false},"msg":"success"}
+2019-12-22 15:08:05.947  INFO 532332 --- [http-nio-8808-exec-6] c.w.c.ChatOnlineWebsocketApplication     : 真实IP:192.168.56.1
+2019-12-22 15:08:05.973  INFO 532332 --- [http-nio-8808-exec-8] c.w.chatonlinewebsocket.utils.ChatUtil   : 有一连接关闭！当前在线人数为1
+2019-12-22 15:08:05.973  INFO 532332 --- [http-nio-8808-exec-8] c.w.chatonlinewebsocket.utils.ChatUtil   : 现在在线用户ID:["15"]
+2019-12-22 15:08:06.337  INFO 532332 --- [http-nio-8808-exec-13] c.w.chatonlinewebsocket.utils.ChatUtil   : websocketList->{"15":{},"10":{}}
+2019-12-22 15:08:06.337  INFO 532332 --- [http-nio-8808-exec-13] c.w.chatonlinewebsocket.utils.ChatUtil   : 有新窗口开始监听:10,IP:192.168.56.1,当前在线人数为2,接入渠道ID为:1,表单ID:10
+2019-12-22 15:08:06.337  INFO 532332 --- [http-nio-8808-exec-13] c.w.chatonlinewebsocket.utils.ChatUtil   : 此时全部在线用户ID:["15","10"]
+2019-12-22 15:08:06.338 DEBUG 532332 --- [http-nio-8808-exec-13] c.w.c.d.D.queryDialogueDetailById        : ==>  Preparing: select * from dialogue_detail where id=? 
+2019-12-22 15:08:06.338 DEBUG 532332 --- [http-nio-8808-exec-13] c.w.c.d.D.queryDialogueDetailById        : ==> Parameters: 10(Integer)
+2019-12-22 15:08:06.339 DEBUG 532332 --- [http-nio-8808-exec-13] c.w.c.d.D.queryDialogueDetailById        : <==      Total: 1
+2019-12-22 15:08:06.339  INFO 532332 --- [http-nio-8808-exec-13] c.w.chatonlinewebsocket.utils.ChatUtil   : detail={"adminId":15,"channelId":1,"id":10,"status":1,"userId":10}
+2019-12-22 15:08:06.340 DEBUG 532332 --- [http-nio-8808-exec-13] c.w.c.d.DialogueMapper.selectByDialogue  : ==>  Preparing: select ID, MESSAGE_TYPE, USER_IP, SENDER_ID, STATUS, CREATE_TIME, UPDATE_TIME,CHANNEL_ID,DIALOGUE_DETAIL_ID , MESSAGE_CONTENT from dialogue where 1=1 AND DIALOGUE_DETAIL_ID = ? group by ID 
+2019-12-22 15:08:06.340 DEBUG 532332 --- [http-nio-8808-exec-13] c.w.c.d.DialogueMapper.selectByDialogue  : ==> Parameters: 10(Integer)
+2019-12-22 15:08:06.352 DEBUG 532332 --- [http-nio-8808-exec-13] c.w.c.d.DialogueMapper.selectByDialogue  : <==      Total: 11
+2019-12-22 15:08:06.353  INFO 532332 --- [http-nio-8808-exec-13] c.w.chatonlinewebsocket.utils.ChatUtil   : 是否是专家:{"code":200,"data":{"isExpert":false},"msg":"success"}
+2019-12-22 15:08:32.055 ERROR 532332 --- [Catalina-utility-1] o.a.coyote.http11.Http11NioProtocol      : Error processing async timeouts
+
+java.util.concurrent.ExecutionException: java.lang.AbstractMethodError: Method org/apache/tomcat/websocket/server/WsHttpUpgradeHandler.timeoutAsync(J)V is abstract
+	at java.util.concurrent.FutureTask.report(Unknown Source) [na:1.8.0_20]
+	at java.util.concurrent.FutureTask.get(Unknown Source) [na:1.8.0_20]
+	at org.apache.coyote.AbstractProtocol.startAsyncTimeout(AbstractProtocol.java:609) ~[tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.coyote.AbstractProtocol$1.run(AbstractProtocol.java:592) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source) [na:1.8.0_20]
+	at java.util.concurrent.FutureTask.runAndReset(Unknown Source) [na:1.8.0_20]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(Unknown Source) [na:1.8.0_20]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source) [na:1.8.0_20]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [na:1.8.0_20]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [na:1.8.0_20]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at java.lang.Thread.run(Unknown Source) [na:1.8.0_20]
+Caused by: java.lang.AbstractMethodError: Method org/apache/tomcat/websocket/server/WsHttpUpgradeHandler.timeoutAsync(J)V is abstract
+	at org.apache.tomcat.websocket.server.WsHttpUpgradeHandler.timeoutAsync(WsHttpUpgradeHandler.java) ~[tomcat-embed-websocket-8.5.23.jar:8.5.23]
+	at org.apache.coyote.http11.upgrade.UpgradeProcessorInternal.timeoutAsync(UpgradeProcessorInternal.java:78) ~[tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.coyote.AbstractProtocol$2.run(AbstractProtocol.java:620) ~[tomcat-embed-core-9.0.29.jar:9.0.29]
+	... 8 common frames omitted
+
+2019-12-22 15:08:43.346  INFO 532332 --- [http-nio-8808-exec-18] c.w.c.ChatOnlineWebsocketApplication     : 真实IP:192.168.56.1
+2019-12-22 15:08:43.364  INFO 532332 --- [http-nio-8808-exec-19] c.w.chatonlinewebsocket.utils.ChatUtil   : 有一连接关闭！当前在线人数为1
+2019-12-22 15:08:43.364  INFO 532332 --- [http-nio-8808-exec-19] c.w.chatonlinewebsocket.utils.ChatUtil   : 现在在线用户ID:["15"]
+2019-12-22 15:08:43.530  INFO 532332 --- [http-nio-8808-exec-22] c.w.chatonlinewebsocket.utils.ChatUtil   : websocketList->{"15":{},"10":{}}
+2019-12-22 15:08:43.530  INFO 532332 --- [http-nio-8808-exec-22] c.w.chatonlinewebsocket.utils.ChatUtil   : 有新窗口开始监听:10,IP:192.168.56.1,当前在线人数为2,接入渠道ID为:1,表单ID:10
+2019-12-22 15:08:43.530  INFO 532332 --- [http-nio-8808-exec-22] c.w.chatonlinewebsocket.utils.ChatUtil   : 此时全部在线用户ID:["15","10"]
+2019-12-22 15:08:43.530 DEBUG 532332 --- [http-nio-8808-exec-22] c.w.c.d.D.queryDialogueDetailById        : ==>  Preparing: select * from dialogue_detail where id=? 
+2019-12-22 15:08:43.531 DEBUG 532332 --- [http-nio-8808-exec-22] c.w.c.d.D.queryDialogueDetailById        : ==> Parameters: 10(Integer)
+2019-12-22 15:08:43.532 DEBUG 532332 --- [http-nio-8808-exec-22] c.w.c.d.D.queryDialogueDetailById        : <==      Total: 1
+2019-12-22 15:08:43.533  INFO 532332 --- [http-nio-8808-exec-22] c.w.chatonlinewebsocket.utils.ChatUtil   : detail={"adminId":15,"channelId":1,"id":10,"status":1,"userId":10}
+2019-12-22 15:08:43.533 DEBUG 532332 --- [http-nio-8808-exec-22] c.w.c.d.DialogueMapper.selectByDialogue  : ==>  Preparing: select ID, MESSAGE_TYPE, USER_IP, SENDER_ID, STATUS, CREATE_TIME, UPDATE_TIME,CHANNEL_ID,DIALOGUE_DETAIL_ID , MESSAGE_CONTENT from dialogue where 1=1 AND DIALOGUE_DETAIL_ID = ? group by ID 
+2019-12-22 15:08:43.533 DEBUG 532332 --- [http-nio-8808-exec-22] c.w.c.d.DialogueMapper.selectByDialogue  : ==> Parameters: 10(Integer)
+2019-12-22 15:08:43.547 DEBUG 532332 --- [http-nio-8808-exec-22] c.w.c.d.DialogueMapper.selectByDialogue  : <==      Total: 11
+2019-12-22 15:08:43.548  INFO 532332 --- [http-nio-8808-exec-22] c.w.chatonlinewebsocket.utils.ChatUtil   : 是否是专家:{"code":200,"data":{"isExpert":false},"msg":"success"}

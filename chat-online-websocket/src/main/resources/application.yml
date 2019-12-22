@@ -1,0 +1,27 @@
+# Tomcat
+server:
+  tomcat:
+    uri-encoding: UTF-8
+    max-threads: 1000
+    min-spare-threads: 30
+  port: 8808
+  servlet:
+    context-path: /chat
+
+# mysql
+spring:
+  # 环境 dev|test|prod
+  profiles:
+    active: dev
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+      enabled: true
+logging:
+  level: debug
+  level.io.renren: debug
+  level.com.wdg.chatonlinewebsocket.dao: debug
+  path: logs/
+  file: api.log
+
