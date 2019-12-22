@@ -5,10 +5,9 @@
 
 `页面效果:`
 
-![userId=15](http://www.goexploit.com:8089/group1/default/20191222/15/46/1/README-fbad9ea5.png)
+![userId=15](./assets/README-fbad9ea5.png)
 
-![useId=10](http://www.goexploit.com:8089/group1/default/20191222/15/45/1/README-0abba062.png)
-
+![userId=10](./assets/README-0abba062.png)
 ---------------------------
 
 ### `技术栈:`
