@@ -1,7 +1,10 @@
 package com.wdg.chatonlinewebsocket.service;
 
 
+import com.wdg.chatonlinewebsocket.bean.Dialogue;
 import com.wdg.chatonlinewebsocket.bean.DialogueDetail;
+
+import java.util.List;
 
 /**
  * Description:
@@ -14,4 +17,5 @@ public interface DialogueDetailService {
     int update(DialogueDetail dialogueDetail);
     int deleteById(Integer id);
     DialogueDetail queryDialogueDetailById(Integer id);
+    List<DialogueDetail> selectByDialogueDetail(DialogueDetail record);
 }

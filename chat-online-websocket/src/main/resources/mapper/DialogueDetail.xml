@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wdg.chatonlinewebsocket.dao.DialogueDetailMapper" >
+    <resultMap id="BaseResultMap" type="com.wdg.chatonlinewebsocket.bean.DialogueDetail">
+        <id column="ID" property="id" jdbcType="INTEGER"/>
+        <id column="USER_ID" property="userId" jdbcType="INTEGER"/>
+        <result column="ADMIN_ID" property="adminId" jdbcType="INTEGER" />
+        <result column="STATUS" property="status" jdbcType="INTEGER" />
+        <result column="CREATE_TIME" property="createTime" jdbcType="DATE" />
+        <result column="CHANNEL_ID" property="channelId" jdbcType="INTEGER" />
+    </resultMap>
+    <sql id="Base_Column_List" >
+        ID, USER_ID, ADMIN_ID, STATUS, CREATE_TIME, CHANNEL_ID
+    </sql>
+    <select id="selectByDialogueDetail" resultMap="BaseResultMap" parameterType="com.wdg.chatonlinewebsocket.bean.DialogueDetail" >
+        select
+        <include refid="Base_Column_List" />
+        from dialogue_detail
+        where
+        1=1
+        <if test="id!=null">
+            AND ID = #{id,jdbcType=INTEGER}
+        </if>
+        <if test="channelId!=null">
+            AND CHANNEL_ID = #{channelId,jdbcType=INTEGER}
+        </if>
+        <if test="status!=null">
+            AND STATUS = #{status,jdbcType=INTEGER}
+        </if>
+        group by ID
+    </select>
+
+</mapper>

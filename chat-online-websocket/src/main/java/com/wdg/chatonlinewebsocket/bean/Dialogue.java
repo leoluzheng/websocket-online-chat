@@ -40,11 +40,6 @@ public class Dialogue implements Serializable {
     private Integer status;
 
     /**
-     * 提交提问后的表单ID,是针对某个提问表单进行的问答
-     */
-    private Integer dialogueDetailId;
-
-    /**
      *
      */
     private Date createTime;
@@ -63,7 +58,7 @@ public class Dialogue implements Serializable {
     private byte[] messageContent;
 
     /**
-     * 渠道ID
+     * 频道ID
      * @return
      */
 

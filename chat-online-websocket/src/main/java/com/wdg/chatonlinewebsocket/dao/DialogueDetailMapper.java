@@ -1,10 +1,12 @@
 package com.wdg.chatonlinewebsocket.dao;
 
+import com.wdg.chatonlinewebsocket.bean.Dialogue;
 import com.wdg.chatonlinewebsocket.bean.DialogueDetail;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
+import java.util.List;
 
 
 @Component
@@ -31,4 +33,6 @@ public interface DialogueDetailMapper {
          @Result(property = "channelId", column = "CHANNEL_ID", javaType = Integer.class)
 	})
 	DialogueDetail queryDialogueDetailById(Integer id);
+
+	List<DialogueDetail> selectByDialogueDetail(DialogueDetail dialogueDetail);
 }

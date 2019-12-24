@@ -4,10 +4,17 @@
 -----------------------
 
 `页面效果:`
+### 一对一聊天
 
-![userId=15](./assets/README-fbad9ea5.png)
+![](./assets/README-30c0e599.png)
+![](./assets/README-fe6fc4ff.png)
 
-![userId=10](./assets/README-0abba062.png)
+### 群聊
+![](./assets/README-12ea28de.png)
+![](./assets/README-f6b70306.png)
+![](./assets/README-817491a6.png)
+
+
 ---------------------------
 
 ### `技术栈:`
@@ -18,10 +25,21 @@
 * websocket
 * mybatis
 
-### `如何使用`
-* 把db目录下面的sql导入本地数据库
-* url中的两个参数userId和fromId是根据数据表dialogue_detail中的USER_ID和ID来确定的，如果dialogue_detail表中没有记录，则会连接失败
-* 访问(`http://localhost:8808/chat/index?userId=10&fromId=10`)
+## `如何使用`
 
+### 群聊
+* http://wudg.goexploit.com:8087/chat/index?userId=10&toUserId=0&fromId=20
+* http://wudg.goexploit.com:8087/chat/index?userId=15&toUserId=0&fromId=20
+* http://wudg.goexploit.com:8087/chat/index?userId=20&toUserId=0&fromId=20
+
+`fromId为频道ID，用户在一个频道下面才能进行聊天`
+`在上面的基础上，userId=0则是往群聊发送信息`
+`userId是当前用户的ID`
+
+### 一对一聊天
+* http://wudg.goexploit.com:8087/chat/index?userId=20&toUserId=10&fromId=20
+* http://wudg.goexploit.com:8087/chat/index?userId=10&toUserId=20&fromId=20
+
+`在上面的基础上，userId不为0则是往userId对方发送信息，这种是一对一的`
 
 -----------------------

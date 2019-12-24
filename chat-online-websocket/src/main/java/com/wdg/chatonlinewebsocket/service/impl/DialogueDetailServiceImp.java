@@ -6,6 +6,8 @@ import com.wdg.chatonlinewebsocket.service.DialogueDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service("dialogueDetailService")
 @SuppressWarnings("all")
 public class DialogueDetailServiceImp implements DialogueDetailService {
@@ -31,5 +33,10 @@ public class DialogueDetailServiceImp implements DialogueDetailService {
 	@Override
 	public DialogueDetail queryDialogueDetailById(Integer id) {
 		return this.dialogueDetailMapper.queryDialogueDetailById(id);
+	}
+
+	@Override
+	public List<DialogueDetail> selectByDialogueDetail(DialogueDetail record) {
+		return this.dialogueDetailMapper.selectByDialogueDetail(record);
 	}
 }

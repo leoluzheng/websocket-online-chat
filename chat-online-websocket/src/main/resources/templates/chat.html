@@ -125,40 +125,32 @@
 <script>
     var socket;
     var userId;
+    var toUserId
     var fromId;
     var isExport = true;
-    var otherFirst = false;
     var leftLogo = "";
     var rightLogo = "";
     var Ip = window.location.host;
     //当前用户ID
     window.onload = function () {
         userId = getUrlParam('userId');
+        toUserId = getUrlParam('toUserId');
         fromId = getUrlParam('fromId')
+        console.log("onload 用户ID:%s,对方用户ID:%s,频道ID:%s",userId,toUserId,fromId)
         openSocket(userId);
-        isFirst = true
-        otherFirst = true;
-        // console.log("刷新后把isFirst置为:", isFirst);
-        console.log("刷新后把otherFirst置为:", otherFirst);
-        console.log("我个傻逼刷新了页面!!!");
     };
 
     function openSocket(n) {
         if (typeof (WebSocket) == "undefined") {
-            console.log("您的浏览器不支持WebSocket");
+            console.log("openSocket() 您的浏览器不支持WebSocket");
         } else {
-            console.log("您的浏览器支持WebSocket");
+            console.log("openSocket() 您的浏览器支持WebSocket");
             //实现化WebSocket对象，指定要连接的服务器地址与端口  建立连接
-            //外网
-            //本地
-            var socketUrl = "ws://"+Ip+"/chat/chat/1/" + fromId + "/" + n;
-            socketUrl = socketUrl.replace("https", "ws").replace("http", "ws");
-            console.log(socketUrl)
+            var socketUrl = "ws://"+Ip+"/chat/chat/"+fromId+"/" + n + "/" + toUserId;
             socket = new WebSocket(socketUrl);
             //打开事件
             socket.onopen = function () {
-                console.log("websocket已打开");
-                //socket.send("这是来自客户端的消息" + location.href + new Date());
+                console.log("onopen websocket已打开");
             };
             //获得消息事件
             socket.onmessage = function (msg) {
@@ -169,14 +161,12 @@
                     receiveFromServer(JSON.stringify(data.data));
                     var ele = document.getElementById('chatBox-content-demo');
                     ele.scrollTop = ele.scrollHeight+100;
-                    console.log("距离:",ele.scrollTop)
                 }
                 //发现消息进入    开始处理前端触发逻辑
             };
             //关闭事件
             socket.onclose = function (e) {
                 console.log('websocket 断开：' + e.code + ' ' + e.reason + ' ' + e.wasClean);
-                console.log(e)
             };
             //发生了错误事件
             socket.onerror = function () {
@@ -185,16 +175,14 @@
         }
     }
 
-    var isFirst = true
 
     function receiveFromServer(data) {
         data = eval('(' + data + ')');
-        console.log("data=", data)
+        console.log("receiveFromServer 接收到消息:", data)
 
         if (data == "连接成功" || data == "数据查询出错")
             return;
         if('isExpert' in data){
-            console.log("当前用户是专家",data.isExpert)
             isExport = data.isExpert;
             if (isExport) {
                 leftLogo = "icon01.png";
@@ -205,27 +193,37 @@
             }
             return
         }
-        if('contentText' in data && 'toUserId' in data){
+        if('contentText' in data && 'toUserId' in data && 'receiveId' in data){
             var content = data.contentText;
             var date = new Date();
-            console.log(".......................", content.indexOf("data:image") != -1);
             if('sendTime' in data){
                 date = new Date(data.sendTime);
-                console.log("消息发送时间:"+date);
             }
             if (content.indexOf("data:image") > -1) {
                 content = "<img src='" + content + "'/>"
             }
-            if (data.toUserId != userId) {
+            console.log("userId=%s,toUserId=%s,data.receiveId=%s,data.toUserId=%s",userId,toUserId,data.receiveId,data.toUserId)
+            if ((data.toUserId == toUserId && data.receiveId == userId)||(data.receiveId == 0 && data.toUserId != userId && toUserId == 0)) {
+                // $(".chatBox-content-demo").append("<div class=\"clearfloat\">" +
+                //     "<div class=\"author-name\"><small class=\"chat-date\">" + dateFormat("YYYY-mm-dd HH:MM", date) + "</small> </div> " +
+                //     "<div class=\"left\"> <div class=\"chat-avatars\"><img src=\"/chat//chat/img/" + leftLogo + "\" alt=\"头像\" /></div> " +
+                //     "<div class=\"chat-message\"> " + content + " </div> </div> </div>");
                 $(".chatBox-content-demo").append("<div class=\"clearfloat\">" +
                     "<div class=\"author-name\"><small class=\"chat-date\">" + dateFormat("YYYY-mm-dd HH:MM", date) + "</small> </div> " +
-                    "<div class=\"left\"> <div class=\"chat-avatars\"><img src=\"/chat//chat/img/" + leftLogo + "\" alt=\"头像\" /></div> " +
+                    "<div class=\"left\"> <div class=\"chat-avatars\">"+data.toUserId+"</div> " +
                     "<div class=\"chat-message\"> " + content + " </div> </div> </div>");
-            } else {
+                console.log("左")
+            }
+            if(data.toUserId == userId && data.receiveId == toUserId){
+                // $(".chatBox-content-demo").append("<div class=\"clearfloat\">" +
+                //     "<div class=\"author-name\"><small class=\"chat-date\">" + dateFormat("YYYY-mm-dd HH:MM", date) + "</small> </div> " +
+                //     "<div class=\"right\"> <div class=\"chat-message\">" + content + "</div> " +
+                //     "<div class=\"chat-avatars\"> <img src=\"/chat/chat/img/" + rightLogo + "\" alt=\"头像\" /></div> </div> </div>");
                 $(".chatBox-content-demo").append("<div class=\"clearfloat\">" +
                     "<div class=\"author-name\"><small class=\"chat-date\">" + dateFormat("YYYY-mm-dd HH:MM", date) + "</small> </div> " +
                     "<div class=\"right\"> <div class=\"chat-message\">" + content + "</div> " +
-                    "<div class=\"chat-avatars\"> <img src=\"/chat/chat/img/" + rightLogo + "\" alt=\"头像\" /></div> </div> </div>");
+                    "<div class=\"chat-avatars\"> "+userId+"</div> </div> </div>");
+                console.log("右")
             }
         }
 
@@ -236,16 +234,10 @@
         if (typeof (WebSocket) == "undefined") {
             console.log("您的浏览器不支持WebSocket");
         } else {
-            console.log("您的浏览器支持WebSocket");
-            console.log('[{"contentText":"' + contentText + '"}]');
+            // console.log("您的浏览器支持WebSocket");
+            // console.log('[{"contentText":"' + contentText + '"}]');
             socket.send('[{"contentText":"' + contentText + '"}]');
         }
-    }
-
-    function connect() {
-        var ceil = Math.ceil(Math.random() * 10);
-        console.log("ceil=", ceil);
-        return ceil;
     }
 
     screenFuc();
@@ -349,11 +341,6 @@
         var textContent = $(".div-textarea").html().replace(/[\n\r]/g, '<br>')
         sendMessage(textContent);
         if (textContent != "") {
-            // var div = document.getElementById("chatBox-content-demo");
-            // while(div.hasChildNodes()) //当div下还存在子节点时 循环继续
-            // {
-            //     div.removeChild(div.firstChild);
-            // }
             $(".chatBox-content-demo").append("<div class=\"clearfloat\">" +
                 "<div class=\"author-name\"><small class=\"chat-date\">" + dateFormat("YYYY-mm-dd HH:MM", new Date()) + "</small> </div> " +
                 "<div class=\"right\"> <div class=\"chat-message\"> " + textContent + " </div> " +
@@ -406,8 +393,6 @@
         reader.onload = function (evt) {
             var images = evt.target.result;
             sendMessage(images);
-            // console.log("image:",images);
-            // reader.readAsDataURL(images);    //Base64
             $(".chatBox-content-demo").append("<div class=\"clearfloat\">" +
                 "<div class=\"author-name\"><small class=\"chat-date\">" + dateFormat("YYYY-mm-dd HH:MM", new Date()) + "</small> </div> " +
                 "<div class=\"right\"> <div class=\"chat-message\"><img src=" + images + "></div> " +

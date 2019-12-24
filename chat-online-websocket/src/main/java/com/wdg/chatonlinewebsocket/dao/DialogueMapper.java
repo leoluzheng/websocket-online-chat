@@ -12,8 +12,8 @@ import java.util.List;
 @Mapper
 @SuppressWarnings("all")
 public interface DialogueMapper {
-	@Insert("insert into dialogue(USER_IP,MESSAGE_TYPE,SENDER_ID,MESSAGE_CONTENT,STATUS,CREATE_TIME,UPDATE_TIME,CHANNEL_ID,DIALOGUE_DETAIL_ID) values" +
-			"(#{userIp},#{messageType},#{senderId},#{messageContent},#{status},#{createTime},#{updateTime},#{channelId},#{dialogueDetailId})")
+	@Insert("insert into dialogue(USER_IP,MESSAGE_TYPE,SENDER_ID,MESSAGE_CONTENT,STATUS,CREATE_TIME,UPDATE_TIME,CHANNEL_ID,RECEIVE_ID) values" +
+			"(#{userIp},#{messageType},#{senderId},#{messageContent},#{status},#{createTime},#{updateTime},#{channelId},#{receiveId})")
 	int add(Dialogue dialogue);
 
 	@Update("update dialogue set MESSAGE_TYPE=#{messageType},MESSAGE_CONTENT=#{messageContent},SENDER_ID=#{senderId},STATUS=#{status},CREATE_TIME=#{createTime}," +
@@ -32,7 +32,6 @@ public interface DialogueMapper {
          @Result(property = "createTime", column = "CREATE_TIME", javaType = Date.class),
          @Result(property = "updateTime", column = "UPDATE_TIME", javaType = Date.class),
          @Result(property = "channelId", column = "CHANNEL_ID", javaType = Integer.class),
-         @Result(property = "dialogueDetailId", column = "DIALOGUE_DETAIL_ID", javaType = Integer.class)
 	})
 	Dialogue queryDialogueById(Integer id);
 

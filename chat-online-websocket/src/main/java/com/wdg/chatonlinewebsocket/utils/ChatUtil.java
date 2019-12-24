@@ -29,13 +29,11 @@ import javax.websocket.*;
 import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
 import java.io.IOException;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArraySet;
 
-@ServerEndpoint("/chat/{channel}/{dialogueDetailId}/{userId}")
+@ServerEndpoint("/chat/{channel}/{userId}/{toUserId}")
 @Component
 @SuppressWarnings("all")
 public class ChatUtil {
@@ -64,13 +62,17 @@ public class ChatUtil {
      * 新：使用map对象，便于根据userId来获取对应的WebSocket
      */
     private static ConcurrentHashMap<String, ChatUtil> websocketList = new ConcurrentHashMap<>();
-    
+
+    // concurrent包的线程安全Set，用来存放每个客户端对应的ProductWebSocket对象。
+    private static CopyOnWriteArraySet<ChatUtil> webSocketSet = new CopyOnWriteArraySet<ChatUtil>();
+
     private String userId = "";
+    private String toUserId = "";
     private String channel = "";
-    private String dialogueDetailId = "";
     private String storeUserId = "";
     private DialogueDetail detail;
     private Boolean isExpert = false;
+    private List<DialogueDetail> listDetail;
 
     /**
      * 判断是否是在发消息时过来的数据，如果是在用户连接时查询出来的数据则不插入数据库中
@@ -88,7 +90,7 @@ public class ChatUtil {
      * 连接建立成功调用的方法
      */
     @OnOpen
-    public void onOpen(Session session, @PathParam("channel") String channel, @PathParam("userId") String userId, @PathParam("dialogueDetailId") String dialogueDetailId) {
+    public void onOpen(Session session, @PathParam("channel") String channel, @PathParam("userId") String userId,@PathParam("toUserId") String toUserId) {
         this.session = session;
         //拿到用户访问IP
         this.userIp = ChatOnlineWebsocketApplication.userIp;
@@ -96,30 +98,52 @@ public class ChatUtil {
         log.info("websocketList->" + JSON.toJSONString(websocketList));
         //加入到不可重复集合中
         userSet.add(userId);
+        webSocketSet.add(this); // 加入set中
         addOnlineCount();
-        log.info("有新窗口开始监听:" + userId +",IP:"+userIp+ ",当前在线人数为" + getOnlineCount() + ",接入渠道ID为:" + channel + ",表单ID:" + dialogueDetailId);
+        log.info("有新窗口开始监听:" + userId +"对方用户ID:"+toUserId+",IP:"+userIp+ ",当前在线人数为" + getOnlineCount() + ",接入渠道ID为:" + channel);
         log.info("此时全部在线用户ID:" + JSON.toJSONString(userSet));
         this.userId = userId;
+        this.toUserId = toUserId;
         this.channel = channel;
         this.storeUserId = userId;
-        this.dialogueDetailId = dialogueDetailId;
         try {
             sendMessage(JSON.toJSONString(Result.success("连接成功")));
             // TODO: 2019/12/17 用户连接上websocket后查询出未读消息 并置位已读
             //用户上线后 把数据库消息读出
             Dialogue tmp = new Dialogue();
-            detail = realDialogueDetailService.queryDialogueDetailById(Integer.parseInt(dialogueDetailId));
-            isExpert = detail.getAdminId().toString().equals(userId);
+            //查询管理员用户
+            DialogueDetail de = new DialogueDetail();
+            de.setChannelId(Integer.parseInt(channel));
+            de.setStatus(1);
+            listDetail = realDialogueDetailService.selectByDialogueDetail(de);
+            log.info("查询到DialogueDetailList:"+JSON.toJSONString(listDetail));
+            isExpert = listDetail.get(0).getUserId().equals(userId);
+//            detail = realDialogueDetailService.queryDialogueDetailById(Integer.parseInt(channel));
+//            isExpert = detail.getAdminId().toString().equals(userId);
             //如果当前用户ID不属于表单对应ID中聊天双方之一，则不返回数据
-            if(detail == null || (!userId.equals(detail.getUserId().toString()) && !userId.equals(detail.getAdminId().toString()))){
-                sendMessage(JSON.toJSONString(Result.success("数据查询出错")));
-                return;
+            //查询相同频道下面的全部用户
+            de.setStatus(null);
+            listDetail = realDialogueDetailService.selectByDialogueDetail(de);
+            if(listDetail.size()>0){
+                List<Integer> userIds = new ArrayList<>();
+                listDetail.stream().forEach(det ->{
+                    userIds.add(det.getUserId());
+                });
+                if(!userIds.contains(Integer.valueOf(userId))){
+                    sendMessage(JSON.toJSONString(Result.success("数据查询出错")));
+                    return;
+                }
             }
-            log.info("detail="+ JSON.toJSONString(detail));
-            tmp.setDialogueDetailId(Integer.parseInt(dialogueDetailId));
+//            if(detail == null || (!userId.equals(detail.getUserId().toString()) && !userId.equals(detail.getAdminId().toString()))){
+//                sendMessage(JSON.toJSONString(Result.success("数据查询出错")));
+//                return;
+//            }
+//            log.info("detail="+ JSON.toJSONString(detail));
+//            tmp.setDialogueDetailId(Integer.parseInt(dialogueDetailId));
+            tmp.setChannelId(Integer.parseInt(channel));
             List<Dialogue> dialoguesList = realDialogueService.selectByDialogue(tmp);
             sendWebScoket(dialoguesList);
-//            log.info("根据表单ID拿到聊天记录:" + JSON.toJSONString(dialoguesList));
+            log.info("根据表单ID拿到聊天记录:" + JSON.toJSONString(dialoguesList));
 
         } catch (IOException e) {
             log.error(e.toString());
@@ -148,6 +172,7 @@ public class ChatUtil {
                     JSONObject object = new JSONObject();
 //                    object.put("fromUserId", dia.getSenderId());
                     object.put("toUserId", dia.getSenderId());
+                    object.put("receiveId", dia.getReceiveId());
                     object.put("sendTime", dia.getCreateTime());
                     //byte[]转string
                     object.put("contentText", new String(contentText));
@@ -170,6 +195,7 @@ public class ChatUtil {
         if (websocketList.get(this.userId) != null) {
             websocketList.remove(this.userId);
             userSet.remove(userId);
+            webSocketSet.remove(this); // 从set中删除
             subOnlineCount();
             log.info("有一连接关闭！当前在线人数为" + getOnlineCount());
             log.info("现在在线用户ID:" + JSON.toJSONString(userSet));
@@ -183,9 +209,9 @@ public class ChatUtil {
      */
     @OnMessage
     public void onMessage(String message) throws IOException {
-        if(dialogueDetailId == "" || !dialogueDetailId.equals(detail.getId().toString())){
-            sendMessage(JSON.toJSONString(Result.success("登录表单ID出错")));
-        }
+//        if(dialogueDetailId == "" || !dialogueDetailId.equals(detail.getId().toString())){
+//            sendMessage(JSON.toJSONString(Result.success("登录表单ID出错")));
+//        }
         if (StringUtils.isNotBlank(message)) {
             JSONArray list = JSONArray.parseArray(message);
             for (int i = 0; i < list.size(); i++) {
@@ -193,12 +219,11 @@ public class ChatUtil {
                     //解析发送的报文
                     JSONObject object = list.getJSONObject(i);
                     log.info("当前用户是专家吗?"+isExpert);
-                    Integer toUserId = isExpert?detail.getUserId():detail.getAdminId();
                     byte[] contentText = object.getString("contentText").getBytes();;
                     object.put("contentText", new String(contentText).replaceAll("&quot;", "\""));
 //                    object.put("fromUserId", storeUserId);
-                    object.put("channId", this.channel);
                     object.put("toUserId", userId);
+                    object.put("receiveId", toUserId);
                     //传送给对应用户的websocket
                     log.info("接收到的数据:" + JSON.toJSONString(Result.success(object)));
                     Dialogue dialogue = new Dialogue();
@@ -206,27 +231,51 @@ public class ChatUtil {
 //                    dialogue.setReceiveId(isExpert?detail.getExpertId():detail.getUserId());
                     dialogue.setSenderId(Integer.parseInt(userId));
                     dialogue.setCreateTime(new Date());
+                    dialogue.setReceiveId(Integer.parseInt(toUserId));
                     dialogue.setStatus(2);
                     dialogue.setUserIp(userIp);
                     //此处是提交的提问表单ID
-                    dialogue.setDialogueDetailId(Integer.parseInt(this.dialogueDetailId));
+                    dialogue.setChannelId(Integer.parseInt(channel));
                     dialogue.setMessageType(1);
                     dialogue.setChannelId(Integer.parseInt(this.channel));
                     if (StringUtils.isNotBlank(toUserId.toString()) && StringUtils.isNotBlank(contentText.toString())) {
                         log.info("toUserId=" + JSON.toJSONString(toUserId));
                         log.info("在线的人:websocketList->" + JSON.toJSONString(websocketList));
-                        ChatUtil socketx = websocketList.get(toUserId.toString());
 
-                        //需要进行转换，userId
-                        if (socketx != null) {
-                            socketx.sendMessage(JSON.toJSONString(Result.success(object)));
-                            log.info("object="+ JSON.toJSONString(object));
-                            //此处可以放置相关业务代码，例如存储到数据库
-                            //如果对方在线 则发送并置位已读
-                            dialogue.setStatus(0);
-                        }else{
-                            //这个判断消息是否已读未读，未读则发送模板消息
-                            log.info("这里应该通知"+toUserId+" 有新消息，模板消息中放入链接");
+                        if("0".equals(toUserId)){
+                            //按所在频道群发
+                            log.info("群发:"+JSON.toJSONString(listDetail));
+                            List<Integer> userIds = new ArrayList<>();
+                            listDetail.stream().forEach(det ->{
+                                userIds.add(det.getUserId());
+                            });
+                            userIds.remove(Integer.valueOf(userId));
+                            for(Integer id:userIds){
+                                ChatUtil tx = websocketList.get(id.toString());
+                                if (tx != null) {
+                                    tx.sendMessage(JSON.toJSONString(Result.success(object)));
+                                    log.info("object="+ JSON.toJSONString(object));
+                                    //此处可以放置相关业务代码，例如存储到数据库
+                                    //如果对方在线 则发送并置位已读
+                                    dialogue.setStatus(0);
+                                }
+                            }
+
+                        }
+                        else{
+                            //一对一发信息
+                            ChatUtil socketx = websocketList.get(toUserId);
+                            //需要进行转换，userId
+                            if (socketx != null) {
+                                socketx.sendMessage(JSON.toJSONString(Result.success(object)));
+                                log.info("object="+ JSON.toJSONString(object));
+                                //此处可以放置相关业务代码，例如存储到数据库
+                                //如果对方在线 则发送并置位已读
+                                dialogue.setStatus(0);
+                            }else{
+                                //这个判断消息是否已读未读，未读则发送模板消息
+                                log.info("这里应该通知"+toUserId+" 有新消息，模板消息中放入链接");
+                            }
                         }
                     }
                     // TODO: 2019/12/17  把聊天消息存库
@@ -259,9 +308,9 @@ public class ChatUtil {
     /**
      * 群发自定义消息
      */
-    /*public static void sendInfo(String message,@PathParam("userId") String userId) throws IOException {
+    public static void sendInfo(String message,@PathParam("userId") String userId) throws IOException {
         log.info("推送消息到窗口"+userId+"，推送内容:"+message);
-        for (ImController item : webSocketSet) {
+        for (ChatUtil item : webSocketSet) {
             try {
                 //这里可以设定只推送给这个sid的，为null则全部推送
                 if(userId==null) {
@@ -273,7 +322,7 @@ public class ChatUtil {
                 continue;
             }
         }
-    }*/
+    }
     public static synchronized int getOnlineCount() {
         return onlineCount;
     }
