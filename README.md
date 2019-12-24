@@ -1,13 +1,13 @@
 # websocket-online-chat
-`基于springboot websocket mybatis thymeleaf mysql 的在线聊天工具(暂时只支持图片和文字)`
+`基于springboot websocket mybatis thymeleaf mysql 的在线聊天工具(暂时只支持图片和文字,可发送剪切板里面的图片内容)`
 
 -----------------------
 
 `页面效果:`
 ### 一对一聊天
 
-![](./assets/README-30c0e599.png)
-![](./assets/README-fe6fc4ff.png)
+![](./assets/README-7fb0ee8e.png)
+![](./assets/README-6ed0ce60.png)
 
 ### 群聊
 ![](./assets/README-12ea28de.png)
