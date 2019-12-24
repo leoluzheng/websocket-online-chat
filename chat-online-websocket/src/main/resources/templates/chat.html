@@ -451,16 +451,6 @@
             s.replace(/"/g, "&quot;");
     };
 
-    function encodeImg(img) {
-        console.log("压缩图片...")
-        var canvas = document.createElement('canvas');
-        var context = canvas.getContext('2d');
-        canvas.width = 400;
-        canvas.height = 300;
-        // 核心JS就这个
-        context.drawImage(img, 0, 0, 400, 300);
-    }
-
     // JS`正则表达式`获取地址栏url参数：方便测试
     function getUrlParam(name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); // 构造一个含有目标参数的正则表达式对象
@@ -498,6 +488,43 @@
         }
 
     }
+    document.addEventListener('paste', function (event) {
+        var items = (event.clipboardData || window.clipboardData).items;
+        var file = null;
+        if (items && items.length) {
+            // 搜索剪切板items
+            for (var i = 0; i < items.length; i++) {
+                if (items[i].type.indexOf('image') !== -1) {
+                    file = items[i].getAsFile();
+                    break;
+                }
+            }
+        } else {
+            // log.innerHTML = '<span style="color:red;">当前浏览器不支持</span>';
+            return;
+        }
+        if (!file) {
+            // log.innerHTML = '<span style="color:red;">粘贴内容非图片</span>';
+            return;
+        }
+        // 此时file就是我们的剪切板中的图片对象
+        // 如果需要预览，可以执行下面代码
+        var reader = new FileReader()
+        reader.onload = function(event) {
+            var images = event.target.result;
+            sendMessage(images);
+            $(".chatBox-content-demo").append("<div class=\"clearfloat\">" +
+                "<div class=\"author-name\"><small class=\"chat-date\">" + dateFormat("YYYY-mm-dd HH:MM", new Date()) + "</small> </div> " +
+                "<div class=\"right\"> <div class=\"chat-message\"><img src=" + images + "></div> " +
+                "<div class=\"chat-avatars\"><img src=\"/chat/chat/img/icon01.png\" alt=\"头像\" /></div> </div> </div>");
+            //聊天框默认最底部
+            $(document).ready(function () {
+                $("#chatBox-content-demo").scrollTop($("#chatBox-content-demo")[0].scrollHeight);
+            });
+        }
+        reader.readAsDataURL(file);
+        // 如果不需要预览，上面这段可以忽略
+    });
 </script>
 
 </body>
