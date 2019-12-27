@@ -1,5 +1,6 @@
 package com.wdg.chatonlinewebsocket.bean;
 
+import com.wdg.chatonlinewebsocket.utils.penum.ChatEnum;
 import lombok.Data;
 
 import java.io.Serializable;

@@ -11,11 +11,7 @@ package com.wdg.chatonlinewebsocket.utils;
  */
 
 import javax.servlet.http.HttpServletRequest;
-import javax.websocket.RemoteEndpoint.Async;
-import javax.websocket.Session;
-import java.lang.reflect.Field;
 import java.net.InetAddress;
-import java.net.InetSocketAddress;
 import java.net.UnknownHostException;
 
 public class WebsocketUtil {

@@ -10,6 +10,8 @@ package com.wdg.chatonlinewebsocket.utils;
  * @since JDK 1.8
  */
 
+import lombok.Data;
+
 /**
  * 输出结果的封装
  * 只要get不要set,进行更好的封装
@@ -17,6 +19,7 @@ package com.wdg.chatonlinewebsocket.utils;
  * @param <T>
  */
 @SuppressWarnings("all")
+@Data
 public class Result<T> {
     private int code;
     private String msg;
@@ -54,17 +57,5 @@ public class Result<T> {
      */
     public static <T> Result<T> fail(ResultEnum mg) {
         return new Result<T>(mg);
-    }
-
-    public int getCode() {
-        return code;
-    }
-
-    public String getMsg() {
-        return msg;
-    }
-
-    public T getData() {
-        return data;
     }
 }

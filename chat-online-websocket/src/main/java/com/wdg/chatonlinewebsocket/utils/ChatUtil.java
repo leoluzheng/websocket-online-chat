@@ -18,6 +18,7 @@ import com.wdg.chatonlinewebsocket.bean.Dialogue;
 import com.wdg.chatonlinewebsocket.bean.DialogueDetail;
 import com.wdg.chatonlinewebsocket.service.DialogueDetailService;
 import com.wdg.chatonlinewebsocket.service.DialogueService;
+import com.wdg.chatonlinewebsocket.utils.penum.ChatEnum;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -118,8 +119,6 @@ public class ChatUtil {
             listDetail = realDialogueDetailService.selectByDialogueDetail(de);
             log.info("查询到DialogueDetailList:"+JSON.toJSONString(listDetail));
             isExpert = listDetail.get(0).getUserId().equals(userId);
-//            detail = realDialogueDetailService.queryDialogueDetailById(Integer.parseInt(channel));
-//            isExpert = detail.getAdminId().toString().equals(userId);
             //如果当前用户ID不属于表单对应ID中聊天双方之一，则不返回数据
             //查询相同频道下面的全部用户
             de.setStatus(null);
@@ -134,12 +133,6 @@ public class ChatUtil {
                     return;
                 }
             }
-//            if(detail == null || (!userId.equals(detail.getUserId().toString()) && !userId.equals(detail.getAdminId().toString()))){
-//                sendMessage(JSON.toJSONString(Result.success("数据查询出错")));
-//                return;
-//            }
-//            log.info("detail="+ JSON.toJSONString(detail));
-//            tmp.setDialogueDetailId(Integer.parseInt(dialogueDetailId));
             tmp.setChannelId(Integer.parseInt(channel));
             List<Dialogue> dialoguesList = realDialogueService.selectByDialogue(tmp);
             sendWebScoket(dialoguesList);
@@ -168,9 +161,7 @@ public class ChatUtil {
         for (Dialogue dia : dialoguesList) {
             byte[] contentText = dia.getMessageContent();
             if (StringUtils.isNotBlank(userId) && StringUtils.isNotBlank(contentText.toString())) {
-//                    log.info("toUserId=" + JSON.toJSONString(userId));
                     JSONObject object = new JSONObject();
-//                    object.put("fromUserId", dia.getSenderId());
                     object.put("toUserId", dia.getSenderId());
                     object.put("receiveId", dia.getReceiveId());
                     object.put("sendTime", dia.getCreateTime());
@@ -228,15 +219,14 @@ public class ChatUtil {
                     log.info("接收到的数据:" + JSON.toJSONString(Result.success(object)));
                     Dialogue dialogue = new Dialogue();
                     dialogue.setMessageContent(contentText);
-//                    dialogue.setReceiveId(isExpert?detail.getExpertId():detail.getUserId());
                     dialogue.setSenderId(Integer.parseInt(userId));
                     dialogue.setCreateTime(new Date());
                     dialogue.setReceiveId(Integer.parseInt(toUserId));
-                    dialogue.setStatus(2);
+                    dialogue.setStatus(ChatEnum.UNREAD.getValue());
                     dialogue.setUserIp(userIp);
                     //此处是提交的提问表单ID
                     dialogue.setChannelId(Integer.parseInt(channel));
-                    dialogue.setMessageType(1);
+                    dialogue.setMessageType(ChatEnum.CHARACTER.getValue());
                     dialogue.setChannelId(Integer.parseInt(this.channel));
                     if (StringUtils.isNotBlank(toUserId.toString()) && StringUtils.isNotBlank(contentText.toString())) {
                         log.info("toUserId=" + JSON.toJSONString(toUserId));
@@ -257,7 +247,7 @@ public class ChatUtil {
                                     log.info("object="+ JSON.toJSONString(object));
                                     //此处可以放置相关业务代码，例如存储到数据库
                                     //如果对方在线 则发送并置位已读
-                                    dialogue.setStatus(0);
+                                    dialogue.setStatus(ChatEnum.EXPIRE.getValue());
                                 }
                             }
 
@@ -270,8 +260,8 @@ public class ChatUtil {
                                 socketx.sendMessage(JSON.toJSONString(Result.success(object)));
                                 log.info("object="+ JSON.toJSONString(object));
                                 //此处可以放置相关业务代码，例如存储到数据库
-                                //如果对方在线 则发送并置位已读
-                                dialogue.setStatus(0);
+                                //如果对方在线 则发送并置为已读
+                                dialogue.setStatus(ChatEnum.MARKREAD.getValue());
                             }else{
                                 //这个判断消息是否已读未读，未读则发送模板消息
                                 log.info("这里应该通知"+toUserId+" 有新消息，模板消息中放入链接");

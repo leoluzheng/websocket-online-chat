@@ -23,10 +23,6 @@ public class DialogueDetail implements Serializable {
      */
     private Integer userId;
 
-    /**
-     * 管理员ID
-     */
-    private Integer adminId;
 
     /**
      * 

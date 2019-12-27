@@ -4,13 +4,12 @@
     <resultMap id="BaseResultMap" type="com.wdg.chatonlinewebsocket.bean.DialogueDetail">
         <id column="ID" property="id" jdbcType="INTEGER"/>
         <id column="USER_ID" property="userId" jdbcType="INTEGER"/>
-        <result column="ADMIN_ID" property="adminId" jdbcType="INTEGER" />
         <result column="STATUS" property="status" jdbcType="INTEGER" />
         <result column="CREATE_TIME" property="createTime" jdbcType="DATE" />
         <result column="CHANNEL_ID" property="channelId" jdbcType="INTEGER" />
     </resultMap>
     <sql id="Base_Column_List" >
-        ID, USER_ID, ADMIN_ID, STATUS, CREATE_TIME, CHANNEL_ID
+        ID, USER_ID, STATUS, CREATE_TIME, CHANNEL_ID
     </sql>
     <select id="selectByDialogueDetail" resultMap="BaseResultMap" parameterType="com.wdg.chatonlinewebsocket.bean.DialogueDetail" >
         select
